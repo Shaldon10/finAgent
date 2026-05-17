@@ -1,0 +1,38 @@
+<main class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="FuelWise ZA overview">
+      <span>FW</span>
+      FuelWise ZA
+    </a>
+    <nav aria-label="Dashboard sections">
+      <a href="#budget">Budget</a>
+      <a href="#simulator">Simulator</a>
+    </nav>
+  </header>
+
+  <section class="overview" id="overview">
+    <div>
+      <p>South African fuel planning</p>
+      <h1>Track pump prices, budget pressure, and smarter monthly choices.</h1>
+    </div>
+    <div class="overview-card">
+      <span>Live-ready data model</span>
+      <strong>May 2026</strong>
+      <small>Seeded from DMPR public fuel-price notices with client-only budget data.</small>
+    </div>
+  </section>
+
+  <section class="summary-grid" aria-label="Application highlights">
+    <article>
+      <span>Budget dashboard</span>
+      <strong>Real-time recalculation</strong>
+    </article>
+    <article>
+      <span>Lifestyle simulator</span>
+      <strong>Monthly and annual savings</strong>
+    </article>
+  </section>
+
+  <app-budget-impact />
+  <app-lifestyle-simulator />
+</main>

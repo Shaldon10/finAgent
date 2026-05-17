@@ -1,0 +1,75 @@
+{
+  "effectiveFrom": "2026-05-06",
+  "nextReview": "2026-06-03",
+  "sourceName": "Department of Mineral and Petroleum Resources, May 2026 schedule",
+  "sourceUrl": "https://www.dmpr.gov.za/Services/Petroleum-Resources/Fuel-Prices",
+  "products": [
+    {
+      "id": "petrol-93",
+      "label": "Petrol 93 ULP",
+      "region": "inland",
+      "pricePerLitre": 26.52,
+      "previousPricePerLitre": 23.25,
+      "monthlyChange": 3.27,
+      "kind": "petrol"
+    },
+    {
+      "id": "petrol-95",
+      "label": "Petrol 95 ULP",
+      "region": "inland",
+      "pricePerLitre": 26.63,
+      "previousPricePerLitre": 23.36,
+      "monthlyChange": 3.27,
+      "kind": "petrol"
+    },
+    {
+      "id": "petrol-95",
+      "label": "Petrol 95 ULP",
+      "region": "coastal",
+      "pricePerLitre": 25.76,
+      "previousPricePerLitre": 22.49,
+      "monthlyChange": 3.27,
+      "kind": "petrol"
+    },
+    {
+      "id": "diesel-500ppm",
+      "label": "Diesel 500 ppm",
+      "region": "inland",
+      "pricePerLitre": 32.1,
+      "previousPricePerLitre": 25.91,
+      "monthlyChange": 6.19,
+      "kind": "diesel",
+      "note": "Wholesale diesel benchmark. Retail prices vary by forecourt."
+    },
+    {
+      "id": "diesel-500ppm",
+      "label": "Diesel 500 ppm",
+      "region": "coastal",
+      "pricePerLitre": 31.23,
+      "previousPricePerLitre": 25.04,
+      "monthlyChange": 6.19,
+      "kind": "diesel",
+      "note": "Wholesale diesel benchmark. Retail prices vary by forecourt."
+    },
+    {
+      "id": "diesel-50ppm",
+      "label": "Diesel 50 ppm",
+      "region": "inland",
+      "pricePerLitre": 32.2,
+      "previousPricePerLitre": 26.01,
+      "monthlyChange": 6.19,
+      "kind": "diesel",
+      "note": "Wholesale diesel benchmark. Retail prices vary by forecourt."
+    },
+    {
+      "id": "diesel-50ppm",
+      "label": "Diesel 50 ppm",
+      "region": "coastal",
+      "pricePerLitre": 31.33,
+      "previousPricePerLitre": 25.14,
+      "monthlyChange": 6.19,
+      "kind": "diesel",
+      "note": "Wholesale diesel benchmark. Retail prices vary by forecourt."
+    }
+  ]
+}

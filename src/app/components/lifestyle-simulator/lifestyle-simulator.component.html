@@ -1,0 +1,52 @@
+<section class="simulator-grid" id="simulator">
+  <div class="panel">
+    <div class="section-heading">
+      <p>Simulator</p>
+      <h2>Test practical lifestyle changes before you commit.</h2>
+    </div>
+
+    <div class="scenario-list">
+      @for (scenario of scenarios; track scenario.id) {
+        <button
+          type="button"
+          class="scenario"
+          [class.selected]="isSelected(scenario.id)"
+          (click)="toggle(scenario.id)"
+        >
+          <span class="check">{{ isSelected(scenario.id) ? 'On' : 'Off' }}</span>
+          <strong>{{ scenario.title }}</strong>
+          <small>{{ scenario.description }}</small>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="panel savings-panel">
+    <span class="eyebrow">Projected savings</span>
+    <strong>R{{ result().monthlySavings.toFixed(0) }}/mo</strong>
+    <p>R{{ result().annualSavings.toFixed(0) }} per year at the current selected fuel price.</p>
+
+    <div class="comparison">
+      <div>
+        <span>Current</span>
+        <strong>R{{ result().originalMonthlyCost.toFixed(0) }}</strong>
+      </div>
+      <div>
+        <span>Simulated</span>
+        <strong>R{{ result().simulatedMonthlyCost.toFixed(0) }}</strong>
+      </div>
+    </div>
+
+    <div class="savings-bars">
+      @for (detail of result().details; track detail.label) {
+        <div class="bar-row">
+          <span>{{ detail.label }}</span>
+          <div>
+            <i [style.width.%]="Math.min(100, (detail.saving / Math.max(1, result().monthlySavings)) * 100)"></i>
+          </div>
+          <strong>R{{ detail.saving.toFixed(0) }}</strong>
+        </div>
+      }
+    </div>
+  </div>
+</section>

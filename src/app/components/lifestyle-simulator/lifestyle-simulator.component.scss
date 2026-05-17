@@ -1,0 +1,144 @@
+:host {
+  display: block;
+}
+
+.simulator-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr) minmax(310px, 0.8fr);
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #dde8e1;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(18, 40, 33, 0.08);
+  padding: 1.25rem;
+}
+
+.section-heading p,
+.eyebrow {
+  color: #0f7a4f;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  color: #17352b;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.scenario-list {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.scenario {
+  background: #f7fbf8;
+  border: 1px solid #d5e5dc;
+  border-radius: 8px;
+  color: #17352b;
+  cursor: pointer;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.scenario.selected {
+  background: #e9f7ee;
+  border-color: #0f7a4f;
+}
+
+.check {
+  color: #0f7a4f;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.scenario strong {
+  font-size: 1rem;
+}
+
+.scenario small,
+.savings-panel p,
+.comparison span,
+.bar-row span {
+  color: #587268;
+}
+
+.savings-panel > strong {
+  color: #0f7a4f;
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 3.7rem);
+  line-height: 1;
+  margin: 0.3rem 0;
+}
+
+.savings-panel p {
+  line-height: 1.45;
+  margin: 0 0 1rem;
+}
+
+.comparison {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+}
+
+.comparison div {
+  border: 1px solid #dde8e1;
+  border-radius: 8px;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.8rem;
+}
+
+.comparison strong {
+  color: #17352b;
+  font-size: 1.2rem;
+}
+
+.savings-bars {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.bar-row {
+  align-items: center;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: 110px 1fr 70px;
+}
+
+.bar-row div {
+  background: #e3eee8;
+  border-radius: 999px;
+  height: 0.55rem;
+  overflow: hidden;
+}
+
+.bar-row i {
+  background: #e6a33a;
+  display: block;
+  height: 100%;
+}
+
+.bar-row strong {
+  color: #17352b;
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .simulator-grid,
+  .scenario-list {
+    grid-template-columns: 1fr;
+  }
+}
