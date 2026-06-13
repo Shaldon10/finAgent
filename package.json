@@ -8,7 +8,7 @@
     "serve:prod": "node server/api-server.mjs",
     "build": "ng build",
     "predeploy": "ng build --configuration production --base-href /finAgent/",
-    "deploy": "npx angular-cli-ghpages --dir=dist/south-africa-fuel-app",
+    "deploy": "npx angular-cli-ghpages --dir=dist/south-africa-fuel-app/browser",
     "deploy:check": "npm run build && npm test -- --watch=false",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
