@@ -7,13 +7,13 @@
     "api": "node server/api-server.mjs --api-only",
     "serve:prod": "node server/api-server.mjs",
     "build": "ng build",
-    "predeploy": "ng build --configuration production --base-href /fuel-wise-za/",
+    "predeploy": "ng build --configuration production --base-href /finAgent/",
     "deploy": "npx angular-cli-ghpages --dir=dist/south-africa-fuel-app",
     "deploy:check": "npm run build && npm test -- --watch=false",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "homepage": "https://shaldon10.github.io/fuel-wise-za/",
+  "homepage": "https://shaldon10.github.io/finAgent/",
   "private": true,
   "packageManager": "npm@11.6.1",
   "dependencies": {
