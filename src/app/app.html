@@ -6,33 +6,37 @@
     </a>
     <nav aria-label="Dashboard sections">
       <a href="#budget">Budget</a>
-      <a href="#simulator">Simulator</a>
     </nav>
   </header>
 
   <section class="overview" id="overview">
     <div>
-      <p>South African fuel planning</p>
-      <h1>Track pump prices, budget pressure, and smarter monthly choices.</h1>
+      <p>Fuel pricing insights for smarter budgeting</p>
+      <h1>Track pump prices, predict future increases and save!</h1>
     </div>
     <div class="overview-card">
       <span>Live-ready data model</span>
-      <strong>May 2026</strong>
-      <small>Seeded from DMPR public fuel-price notices with client-only budget data.</small>
+      <strong>{{ effectiveMonthYear() }}</strong>
+      <small>Sourced from <a href="https://sa-fuel-api.guerillagardeningkzn.workers.dev/docs" target="_blank" rel="noopener noreferrer" class="api-link">SA-fuel-API</a></small>
     </div>
   </section>
 
-  <section class="summary-grid" aria-label="Application highlights">
-    <article>
-      <span>Budget dashboard</span>
-      <strong>Real-time recalculation</strong>
-    </article>
-    <article>
-      <span>Lifestyle simulator</span>
-      <strong>Monthly and annual savings</strong>
-    </article>
-  </section>
+  <section class="summary-budget-row">
+    <section class="summary-grid" aria-label="Application highlights">
+      <article>
+        <span>Budget dashboard</span>
+        <strong>Real-time calculation</strong>
+      </article>
+      <article class="summary-card--disabled">
+        <span>Future fuel prediction</span>
+        <strong>Coming soon</strong>
+      </article>
+      <article class="summary-card--disabled">
+        <span>Scenario savings</span>
+        <strong>Coming soon</strong>
+      </article>
+    </section>
 
-  <app-budget-impact />
-  <app-lifestyle-simulator />
+    <app-budget-impact />
+  </section>
 </main>

@@ -16,25 +16,17 @@
   padding: 1.25rem;
 }
 
-.section-heading p {
-  color: #0f7a4f;
-  font-size: 0.78rem;
-  font-weight: 800;
-  margin: 0 0 0.35rem;
-  text-transform: uppercase;
-}
-
-.section-heading h2 {
-  color: #17352b;
-  font-size: clamp(1.45rem, 2vw, 2rem);
-  line-height: 1.1;
-  margin: 0 0 1rem;
+.control-panel {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
 }
 
 .input-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
+  margin-bottom: 0.4rem;
 }
 
 label {
@@ -61,7 +53,11 @@ select {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin: 1rem 0;
+  margin-top: 0.2rem;
+  margin-bottom: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
 }
 
 button {
@@ -72,10 +68,45 @@ button {
   cursor: pointer;
   font-weight: 800;
   padding: 0.7rem 0.9rem;
+  transition: transform 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
 }
 
-button:first-child {
+button:hover {
+  background: #0f5f43;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(15, 122, 79, 0.35);
+  outline-offset: 2px;
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+button.button-drop {
   background: #0f7a4f;
+}
+
+button.button-drop:hover {
+  background: #0d6b44;
+}
+
+button.button-rise {
+  background: #9b2d2d;
+}
+
+button.button-rise:hover {
+  background: #7f2424;
+}
+
+button.button-reset {
+  background: #17352b;
+}
+
+button.button-reset:hover {
+  background: #0f5f43;
 }
 
 .budget-table {
@@ -141,35 +172,6 @@ small,
   color: #b04a16;
 }
 
-.budget-meter {
-  margin-top: 1rem;
-}
-
-.meter-label {
-  align-items: center;
-  color: #17352b;
-  display: flex;
-  justify-content: space-between;
-  margin: 0.6rem 0;
-}
-
-.meter-label.subtle {
-  color: #587268;
-}
-
-.meter-track {
-  background: #e3eee8;
-  border-radius: 999px;
-  height: 0.8rem;
-  overflow: hidden;
-}
-
-.meter-track span {
-  background: linear-gradient(90deg, #0f7a4f, #e6a33a);
-  display: block;
-  height: 100%;
-}
-
 .source {
   font-size: 0.82rem;
   line-height: 1.5;
@@ -225,6 +227,15 @@ small,
   font-size: 0.9rem;
   line-height: 1.45;
   margin: 0;
+}
+ 
+.calc-toggle {
+  background: transparent;
+  border: 0;
+  color: #0f7a4f;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  cursor: pointer;
 }
 
 a {

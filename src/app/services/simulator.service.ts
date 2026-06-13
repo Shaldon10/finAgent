@@ -16,13 +16,6 @@ export const SCENARIOS: SimulatorScenario[] = [
     categoryAdjustments: { insurance: -350 },
   },
   {
-    id: 'ride-share',
-    title: 'Ride-sharing swap',
-    description: 'Use e-hailing for short trips and avoid parking costs.',
-    fuelSavingPercent: 10,
-    categoryAdjustments: { misc: 250 },
-  },
-  {
     id: 'refuel-timing',
     title: 'Refueling timing',
     description: 'Fill strategically before confirmed monthly increases.',

@@ -74,23 +74,11 @@
     </div>
 
     <div class="live-controls" aria-label="Simulate price changes">
-      <button type="button" (click)="simulateMove(-1.5)">Drop 1.5%</button>
-      <button type="button" (click)="simulateMove(2)">Rise 2%</button>
+      <button type="button" class="button-reset" (click)="resetPrices()">Reset</button>
+      <button type="button" class="button-drop" (click)="simulateMove(-1.5)">Drop 1.5%</button>
+      <button type="button" class="button-rise" (click)="simulateMove(2)">Rise 2%</button>
     </div>
 
-    <div class="budget-table">
-      @for (entry of state().entries; track entry.category) {
-        <label class="budget-row">
-          <span>{{ entry.label }}</span>
-          <input
-            type="number"
-            min="0"
-            [ngModel]="entry.amount"
-            (ngModelChange)="updateEntry(entry.category, $event)"
-          />
-        </label>
-      }
-    </div>
   </div>
 
   <div class="panel results-panel">
@@ -102,45 +90,32 @@
 
     <div class="metric-grid">
       <article>
-        <span>Monthly fuel</span>
-        <strong>R{{ currentFuelCost().toFixed(0) }}</strong>
-        <small>At {{ calculatedMonthlyLitres().toFixed(1) }} litres</small>
+        <span>Monthly fuel cost</span>
+        <strong>R{{ currentFuelCost().toFixed(2) }}</strong>
+        <small>At {{ calculatedMonthlyLitres().toFixed(1) }} L • {{ fuelImpactPercent().toFixed(1) }}% of income</small>
       </article>
       <article>
-        <span>Fuel over/under budget</span>
-        <strong [class.negative]="monthlyDelta() > 0">
-          {{ monthlyDelta() > 0 ? '+' : '' }}R{{ monthlyDelta().toFixed(0) }}
-        </strong>
-        <small>How much more or less fuel may cost</small>
+        <span>Weekly fuel cost</span>
+        <strong>R{{ weeklyFuelCost().toFixed(2) }}</strong>
+        <small>Approx. per week</small>
       </article>
       <article>
-        <span>Income impact</span>
+        <span>Share of your income</span>
         <strong>{{ fuelImpactPercent().toFixed(1) }}%</strong>
-        <small>Fuel share of income</small>
+        <small>R{{ disposableIncome().toFixed(2) }} remaining after adjusted spend</small>
       </article>
-    </div>
-
-    <div class="budget-meter">
-      <div class="meter-label">
-        <span>Adjusted monthly spend</span>
-        <strong>R{{ adjustedTotal().toFixed(0) }}</strong>
-      </div>
-      <div class="meter-track">
-        <span [style.width.%]="budgetUsePercent()"></span>
-      </div>
-      <div class="meter-label subtle">
-        <span>Remaining income</span>
-        <strong>R{{ disposableIncome().toFixed(0) }}</strong>
-      </div>
     </div>
 
     <div class="calculation-panel" aria-label="Fuel cost calculation">
-      <div class="section-heading compact">
-        <p>Calculation</p>
-        <h2>How this monthly fuel cost is worked out.</h2>
-      </div>
+      <button class="calc-toggle" type="button" (click)="showCalculation = !showCalculation" aria-expanded="{{showCalculation}}">How we calculate this</button>
 
-      <div class="calculation-steps">
+      <div *ngIf="showCalculation">
+        <div class="section-heading compact">
+          <p>Calculation</p>
+          <h2>How this monthly fuel cost is worked out.</h2>
+        </div>
+
+        <div class="calculation-steps">
         <article>
           <span>1</span>
           <div>
@@ -183,6 +158,7 @@
             </p>
           </div>
         </article>
+        </div>
       </div>
     </div>
 
@@ -192,3 +168,5 @@
     </p>
   </div>
 </section>
+
+    

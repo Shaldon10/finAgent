@@ -76,11 +76,11 @@ nav a:hover {
 
 .overview,
 .summary-grid,
-app-budget-impact,
-app-lifestyle-simulator {
+app-budget-impact {
   margin: 0 auto;
   max-width: 1180px;
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 .overview {
@@ -134,10 +134,20 @@ h1 {
   line-height: 1.45;
 }
 
+.api-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.api-link:hover {
+  color: #f0f0f0;
+}
+
 .summary-grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
 }
 
 .summary-grid article {
@@ -147,6 +157,17 @@ h1 {
   display: grid;
   gap: 0.3rem;
   padding: 1rem;
+}
+
+.summary-grid article.summary-card--disabled {
+  background: #f4f5f6;
+  border-color: #d7dade;
+  color: #7f8a97;
+}
+
+.summary-grid article.summary-card--disabled span,
+.summary-grid article.summary-card--disabled strong {
+  color: #7f8a97;
 }
 
 .summary-grid span {

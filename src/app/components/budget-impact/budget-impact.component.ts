@@ -3,7 +3,6 @@ import { Component, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 import {
-  BudgetCategory,
   calculateMonthlyKilometres,
   calculateMonthlyLitres,
 } from '../../models/budget.model';
@@ -55,6 +54,11 @@ export class BudgetImpactComponent {
       ),
     ),
   );
+  readonly weeklyFuelCost = computed(() =>
+    this.roundMoney(
+      (this.calculatedMonthlyLitres() * this.product().pricePerLitre) / 4.345,
+    ),
+  );
   readonly currentFuelCost = computed(() =>
     this.roundMoney(this.calculatedMonthlyLitres() * this.product().pricePerLitre),
   );
@@ -75,11 +79,9 @@ export class BudgetImpactComponent {
       ? this.roundMoney((this.currentFuelCost() / this.state().income) * 100)
       : 0,
   );
-  readonly budgetUsePercent = computed(() =>
-    this.state().income > 0
-      ? Math.min(100, this.roundMoney((this.adjustedTotal() / this.state().income) * 100))
-      : 0,
-  );
+
+  // UI state for the collapsible calculation steps
+  showCalculation = false;
 
   constructor() {
     this.fuelPrice.loadSnapshot().subscribe();
@@ -87,10 +89,6 @@ export class BudgetImpactComponent {
 
   updateIncome(value: number | string): void {
     this.budgetState.update({ income: this.toNumber(value) });
-  }
-
-  updateLitres(value: number | string): void {
-    this.budgetState.update({ litresPerMonth: this.toNumber(value) });
   }
 
   updateOfficeDays(value: number | string): void {
@@ -120,12 +118,12 @@ export class BudgetImpactComponent {
     this.budgetState.update({ selectedFuelId: productId });
   }
 
-  updateEntry(category: BudgetCategory, amount: number | string): void {
-    this.budgetState.updateEntry(category, this.toNumber(amount));
-  }
-
   simulateMove(percent: number): void {
     this.fuelPrice.simulatePriceMove(percent);
+  }
+
+  resetPrices(): void {
+    this.fuelPrice.resetSnapshot();
   }
 
   private fuelBudget(): number {
